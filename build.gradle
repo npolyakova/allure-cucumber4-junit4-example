@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id("io.qameta.allure") version "2.11.2"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+allure {
+    autoconfigure = false
+    aspectjweaver = true
+    version = '2.24.0'
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'io.cucumber:cucumber-java:4.8.0'
+    testImplementation 'io.cucumber:cucumber-junit:4.8.0'
+
+    testImplementation 'io.qameta.allure:allure-cucumber4-jvm:2.23.0'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+
+    implementation 'io.qameta.allure:allure-test-filter:2.24.0'
+}
+
+test {
+    useJUnit()
+}
